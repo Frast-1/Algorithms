@@ -9,17 +9,20 @@ enable_testing()
 # ============================================================
 # Программы
 # ============================================================
-add_executable(task1
-    task1.cpp
-    array.cpp
-    array.h
+add_library(array_lib
+    ../LibraryCPP/array.cpp
 )
 
-add_executable(task2
-    task2.cpp
-    array.cpp
-    array.h
+target_include_directories(array_lib PUBLIC
+    ../LibraryCPP
 )
+
+add_executable(task1 task1.cpp)
+target_link_libraries(task1 array_lib)
+
+
+add_executable(task2 task2.cpp)
+target_link_libraries(task2 array_lib)
 
 # ============================================================
 # Тесты task1
