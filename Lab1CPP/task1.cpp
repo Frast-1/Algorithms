@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
     {
         if (array_get(crossed, p - 1) == 0)
         {
-            for (std::size_t multiple = p * p;
+            for (std::size_t multiple = p * p;  
                  multiple <= n;
                  multiple += p)
             {
