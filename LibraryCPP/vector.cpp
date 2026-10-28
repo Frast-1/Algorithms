@@ -42,7 +42,7 @@ size_t vector_size(const Vector *vector) {
 void vector_resize(Vector *vector, size_t size) {
     if (size > vector->capacity) {
         size_t new_capacity = vector->capacity * 2;
-        if (new_capacity == 0) new_capacity = 1;
+        //if (new_capacity == 0) new_capacity = 1;
         while (new_capacity < size) {
             new_capacity *= 2;
         }

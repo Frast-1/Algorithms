@@ -14,9 +14,11 @@ endif()
 # Читаем эталонный вывод
 file(READ ${EXPECTED_FILE} EXPECTED_OUTPUT)
 
-# Нормализуем вывод (убираем лишние пробелы в конце строк)
+# Нормализуем вывод (убираем лишние пробелы в конце строк и \r)
 string(REGEX REPLACE "[ \t]+\n" "\n" ACTUAL_OUTPUT "${ACTUAL_OUTPUT}")
 string(REGEX REPLACE "[ \t]+\n" "\n" EXPECTED_OUTPUT "${EXPECTED_OUTPUT}")
+string(REGEX REPLACE "\r" "" ACTUAL_OUTPUT "${ACTUAL_OUTPUT}")
+string(REGEX REPLACE "\r" "" EXPECTED_OUTPUT "${EXPECTED_OUTPUT}")
 
 # Сравниваем вывод
 if(NOT "${ACTUAL_OUTPUT}" STREQUAL "${EXPECTED_OUTPUT}")
